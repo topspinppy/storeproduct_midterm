@@ -63,14 +63,35 @@ class ViewController: UIViewController {
         myFormatter.locale = thaiLocale as Locale
         let currentDateText = myFormatter.string(from: currentDate)
 
-        
-        self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'มีความสุข')";
-        sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
-        
-        sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
-        sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
-        sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
-        sqlite3_step(self.stmt)
+        if (products.length == 0 || places.length == 0)
+        {
+            // create the alert
+            let alert = UIAlertController(title: "แจ้งเตือน", message: "คุณพนักงานยังไม่ได้กรอกสินค้ากับสถานที่ กรุณากรอกสินค้ากับสถานที่ทุกครั้ง", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)        }
+        else
+        {
+            self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'มีความสุข')";
+            sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
+            
+            sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
+            sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
+            sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
+            sqlite3_step(self.stmt)
+            
+            let alert = UIAlertController(title: "สำเร็จ", message: "ข้อมูลความพึงพอใจของลูกค้าบันทึกเข้าสู่ระบบเรียบร้อย", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+        }
         
     }
     
@@ -85,14 +106,36 @@ class ViewController: UIViewController {
         myFormatter.locale = thaiLocale as Locale
         let currentDateText = myFormatter.string(from: currentDate)
         
-        
-        self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'เฉยๆ')";
-        sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
-        
-        sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
-        sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
-        sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
-        sqlite3_step(self.stmt)
+        if (products.length == 0 || places.length == 0)
+        {
+            // create the alert
+            let alert = UIAlertController(title: "แจ้งเตือน", message: "คุณพนักงานยังไม่ได้กรอกสินค้ากับสถานที่ กรุณากรอกสินค้ากับสถานที่ทุกครั้ง", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'เฉยๆ')";
+            sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
+            
+            sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
+            sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
+            sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
+            sqlite3_step(self.stmt)
+            
+            let alert = UIAlertController(title: "สำเร็จ", message: "ข้อมูลความพึงพอใจของลูกค้าบันทึกเข้าสู่ระบบเรียบร้อย", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
         
     }
     
@@ -107,14 +150,36 @@ class ViewController: UIViewController {
         myFormatter.locale = thaiLocale as Locale
         let currentDateText = myFormatter.string(from: currentDate)
         
-        
-        self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'ไม่มีความสุข')";
-        sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
-        
-        sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
-        sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
-        sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
-        sqlite3_step(self.stmt)
+        if (products.length == 0 || places.length == 0)
+        {
+            // create the alert
+            let alert = UIAlertController(title: "แจ้งเตือน", message: "คุณพนักงานยังไม่ได้กรอกสินค้ากับสถานที่ กรุณากรอกสินค้ากับสถานที่ทุกครั้ง", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else
+        {
+            self.sql = "INSERT INTO Quest VALUES (null,?,?,?,'ไม่มีความสุข')";
+            sqlite3_prepare(self.db, self.sql, -1, &self.stmt, nil)
+            
+            sqlite3_bind_text(self.stmt, 1, products.utf8String, -1, nil)
+            sqlite3_bind_text(self.stmt, 2, places.utf8String , -1, nil)
+            sqlite3_bind_text(self.stmt, 3, currentDateText, -1, nil)
+            sqlite3_step(self.stmt)
+            
+            let alert = UIAlertController(title: "สำเร็จ", message: "ข้อมูลความพึงพอใจของลูกค้าบันทึกเข้าสู่ระบบเรียบร้อย", preferredStyle: UIAlertController.Style.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
 }

@@ -51,7 +51,7 @@ class DescriptionQuestViewController: UIViewController {
     }
     
     func select() {
-        sql = "SELECT * FROM Quest"
+        sql = "SELECT * FROM Quest order by id desc"
         sqlite3_prepare(db, sql, -1, &pointer, nil)
         textView.text = ""
         
@@ -64,7 +64,7 @@ class DescriptionQuestViewController: UIViewController {
         while(sqlite3_step(pointer) == SQLITE_ROW)
         {
             id = sqlite3_column_int(pointer, 0)
-            textView.text?.append("\n รหัสสินค้า: \(id)\n")
+            textView.text?.append("\n บันทึกครั้งที่: \(id)\n")
             
             name = String(cString: sqlite3_column_text(pointer, 1))
             textView.text?.append("ผลิตภัณฑ์: \(name) \n")
@@ -76,7 +76,7 @@ class DescriptionQuestViewController: UIViewController {
             textView.text?.append("วันที่: \(birth)\n")
             
             product = String(cString: sqlite3_column_text(pointer, 4))
-            textView.text?.append("ความรู้สึก: \(product)\n ---------------------------")
+            textView.text?.append("ความรู้สึก: \(product)\n ------------------------------------------")
         }
     }
 }
